@@ -120,6 +120,25 @@ class L3_interfacesTemplate(NetworkTemplate):
             },
         },
         {
+            "name": "ipv4.helper-address",
+            "getval": re.compile(
+                r"""\s+ip\shelper-address
+                    (\s(?P<ipv4>\S+))
+                    $""",
+                re.VERBOSE,
+            ),
+            "setval": "ip helper-address {{ ipv4.helper-address }}",
+            "result": {
+                "{{ name }}": {
+                    "ipv4": [
+                        {
+                            "helper-address": "{{ ipv4 }}"
+                        },
+                    ],
+                },
+            },
+        },
+        {
             "name": "ipv4.pool",
             "getval": re.compile(
                 r"""
