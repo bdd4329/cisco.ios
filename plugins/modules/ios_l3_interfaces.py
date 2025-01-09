@@ -64,6 +64,10 @@ options:
             description:
               - Configures the IP address as a secondary address.
             type: bool
+          helper_address:
+            description:
+              - Configures the IP helper address
+            type: str
           dhcp_client:
             description:
               - Configures and specifies client-id to use over DHCP ip. Note, This option
